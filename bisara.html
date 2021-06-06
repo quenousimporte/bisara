@@ -1,0 +1,75 @@
+<html>
+  <head>
+  <script>
+	function convert()
+	{
+		var mapping = 
+    {
+      a: "chichaco",
+      b: "chine",
+      c: "piti",
+      d: "ata",
+      e: "imepi",
+      f: "otisse",
+      g: "grimiti",
+      h: "ipata",
+      i: "ricati",
+      j: "kika",
+      k: "kila",
+      l: "cinacry",
+      m: "zinitz",
+      n: "zinatu",
+      o: "ochica",
+      p: "rira",
+      q: "quitte",
+      r: "rorinia",
+      s: "sica",
+      t: "tipa",
+      u: "chacale",
+      v: "vitraca",
+      w: "wouinet",
+      x: "xsitaxsite",
+      y: "yixa",
+      z: "siza",
+      "?": "<img src='int.png' width=13/>",
+      "!": "<img src='ex.png' width=13/>",
+      ".": "<img src='point.png' width=13/>",
+      ",": "<img src='vir.png' width=13/>",
+      "'": "<img src='apo.png' width=13/>",
+      "\n": "<br>"
+    };
+
+    var result = "";
+    var input = document.getElementById("input").value;
+
+    // remove accents
+    input = input.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    for (var i in input)
+    {
+      var c = input[i];
+      if (!isNaN(parseInt(c)))
+      {
+        t = (parseInt(c) + 5).toString() + "456";
+      }
+      else
+      {
+        l = c.toLowerCase();
+        var t = mapping[c] || c;
+        if (l != c)
+        {
+          t = t.toUpperCase();
+        } 
+      }
+      result += t;
+    }
+
+    document.getElementById("result").innerHTML = result; 
+	}
+  </script>
+  </head>
+  <body>
+    <textarea id="input"></textarea>
+    <button onclick="convert();">Traduire</button>
+    <div id="result"></div>
+  </body>  
+</html>
